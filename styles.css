@@ -1,0 +1,76 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+
+.circle-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: rotate 15s linear infinite; 
+}
+
+
+.item {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transform: rotate(calc(var(--i) * (360deg / 12))) translate(180px) rotate(calc(var(--i) * (-360deg / 12)));
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+.item:hover img {
+    transform: scale(1.5);
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.5);
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@media (max-width: 600px) {
+    .circle-container {
+        width: 300px;
+        height: 300px;
+    }
+    .item {
+        width: 60px;
+        height: 60px;
+        transform: rotate(calc(var(--i) * (360deg / 12))) translate(130px) rotate(calc(var(--i) * (-360deg / 12)));
+    }
+}
